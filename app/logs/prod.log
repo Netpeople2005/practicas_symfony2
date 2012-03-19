@@ -1,0 +1,1 @@
+[2012-03-19 09:37:12] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /symfony/web/" (uncaught exception) at D:\webs\Symfony\vendor\symfony\src\Symfony\Bundle\FrameworkBundle\EventListener\RouterListener.php line 83 [] []
