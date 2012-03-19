@@ -1,0 +1,3 @@
+ManuelInicioBundle_homepage:
+    pattern:  /inicio
+    defaults: { _controller: ManuelInicioBundle:Default:index }

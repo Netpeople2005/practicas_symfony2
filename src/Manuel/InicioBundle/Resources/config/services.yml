@@ -1,0 +1,7 @@
+parameters:
+#    manuel_inicio.example.class: Manuel\InicioBundle\Example
+
+services:
+#    manuel_inicio.example:
+#        class: %manuel_inicio.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
