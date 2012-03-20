@@ -8,6 +8,6 @@ ManuelPersonasBundle_crear:
 
 ManuelPersonasBundle_editar:
     pattern:  /editar/{id}
-    defaults: { _controller: ManuelPersonasBundle:Default:editar ,  }
+    defaults: { _controller: ManuelPersonasBundle:Default:editar }
     requirements: 
-      pag: \d+
+      id: \d+

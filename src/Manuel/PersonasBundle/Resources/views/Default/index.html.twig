@@ -1,7 +1,11 @@
 <h1>Lista de personas en la BD</h1>
 <ul>
     {% for per in personas %}
-        <li>{{ per.nombreCompleto }}</li>
+        <li>
+            <a href="{{ path('ManuelPersonasBundle_editar',{ id : per.id }) }}" >
+                {{ per.nombreCompleto }}
+            </a>
+        </li>
     {% else %}
         <li>No hay registros en la BD!!!</li>
     {% endfor %}
