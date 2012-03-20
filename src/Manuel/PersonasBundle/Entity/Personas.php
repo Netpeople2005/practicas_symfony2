@@ -5,6 +5,22 @@ namespace Manuel\PersonasBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Esta es una entidad creada a traves de la consola de symfony, para ello hice los 
+ * siguientes pasos:
+ * 
+ * Pag. 302 del libro que pasó alberto.
+ * 
+ * generando las entidades a partir de la bd
+ * 
+ * php app/console doctrine:generate:convert --from-database yml src/Manuel/PersonasBundle/Resources/config/doctrine/
+ * 
+ * esto me genera unos yml en la ruta que pasé con la definicion de las tablas
+ * 
+ * luego estas dos para crear a entidad (osea este archivo)
+ * 
+ * php app/console doctrine:mapping:import ManuelPersonasBundle yml
+ * php app/console doctrine:generate:entities ManuelPersonasBundle
+ * 
  * Manuel\PersonasBundle\Entity\Personas
  */
 class Personas
