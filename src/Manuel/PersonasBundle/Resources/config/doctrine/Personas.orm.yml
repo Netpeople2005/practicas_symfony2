@@ -1,0 +1,27 @@
+Manuel\PersonasBundle\Entity\Personas:
+  type: entity
+  table: personas
+  fields:
+    id:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      generator:
+        strategy: IDENTITY
+    nombre:
+      type: string
+      length: 30
+      fixed: false
+      nullable: false
+    apellido:
+      type: string
+      length: 30
+      fixed: false
+      nullable: false
+    direccion:
+      type: string
+      length: 100
+      fixed: false
+      nullable: true
+  lifecycleCallbacks: {  }

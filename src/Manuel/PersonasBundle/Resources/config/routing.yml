@@ -1,0 +1,13 @@
+ManuelPersonasBundle_index:
+    pattern:  /
+    defaults: { _controller: ManuelPersonasBundle:Default:index }
+
+ManuelPersonasBundle_crear:
+    pattern:  /crear/
+    defaults: { _controller: ManuelPersonasBundle:Default:crear }
+
+ManuelPersonasBundle_editar:
+    pattern:  /editar/{id}
+    defaults: { _controller: ManuelPersonasBundle:Default:editar ,  }
+    requirements: 
+      pag: \d+

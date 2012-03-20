@@ -1,3 +1,7 @@
+ManuelPersonasBundle:
+    resource: "@ManuelPersonasBundle/Resources/config/routing.yml"
+    prefix:   /manuel/crud
+
 ManuelInicioBundle:
     resource: "@ManuelInicioBundle/Resources/config/routing.yml"
     prefix:   /manuel
