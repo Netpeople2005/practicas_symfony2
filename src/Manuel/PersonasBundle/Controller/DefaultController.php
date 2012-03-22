@@ -28,6 +28,16 @@ class DefaultController extends Controller
                 ->add('direccion')
                 ->getForm();
 
+        if ($this->getRequest()->getMethod() === 'POST') {
+            $form->bindRequest($this->getRequest());
+            if ($form->isValid()) {
+                $bd = $this->getDoctrine()->getEntityManager();
+                $bd->persist($form->getData());
+                $bd->flush();
+                
+                return $this->redirect($this->generateUrl('ManuelPersonasBundle_index'));
+            }
+        }
         $data['form'] = $form->createView();
         return $this->render('ManuelPersonasBundle:Default:crear.html.twig', $data);
     }

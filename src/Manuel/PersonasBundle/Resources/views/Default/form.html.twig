@@ -1,6 +1,6 @@
 <h1>{% block titulo %}Crear una Persona{% endblock %}</h1>
 
-<form action="{{ path('ManuelPersonasBundle_crear') }}"  method="post">
+<form action="{{ path('ManuelPersonasBundle_crear') }}"  method="post" novalidate>
     {{ form_widget(form) }}
     <input type="submit" value="Guardar" />
 </form>

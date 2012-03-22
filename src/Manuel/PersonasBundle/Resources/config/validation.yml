@@ -1,0 +1,6 @@
+Manuel\PersonasBundle\Entity\Personas:
+  properties:
+    nombre:
+      - NotBlank: ~
+    apellido:
+      - NotBlank: ~
