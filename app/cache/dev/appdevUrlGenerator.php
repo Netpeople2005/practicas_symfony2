@@ -33,6 +33,10 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        '_configurator_home' => true,
        '_configurator_step' => true,
        '_configurator_final' => true,
+       'ManuelPersonasBundle_index' => true,
+       'ManuelPersonasBundle_crear' => true,
+       'ManuelPersonasBundle_editar' => true,
+       'ManuelInicioBundle_homepage' => true,
     );
 
     /**
@@ -154,5 +158,25 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function get_configurator_finalRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Sensio\\Bundle\\DistributionBundle\\Controller\\ConfiguratorController::finalAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_configurator/final',  ),));
+    }
+
+    private function getManuelPersonasBundle_indexRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Manuel\\PersonasBundle\\Controller\\DefaultController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/manuel/crud/',  ),));
+    }
+
+    private function getManuelPersonasBundle_crearRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Manuel\\PersonasBundle\\Controller\\DefaultController::crearAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/manuel/crud/crear/',  ),));
+    }
+
+    private function getManuelPersonasBundle_editarRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Manuel\\PersonasBundle\\Controller\\DefaultController::editarAction',), array (  'id' => '\\d+',), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '\\d+',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/manuel/crud/editar',  ),));
+    }
+
+    private function getManuelInicioBundle_homepageRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Manuel\\InicioBundle\\Controller\\DefaultController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/manuel/inicio',  ),));
     }
 }

@@ -143,6 +143,35 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/manuel/crud')) {
+            // ManuelPersonasBundle_index
+            if (rtrim($pathinfo, '/') === '/manuel/crud') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'ManuelPersonasBundle_index');
+                }
+                return array (  '_controller' => 'Manuel\\PersonasBundle\\Controller\\DefaultController::indexAction',  '_route' => 'ManuelPersonasBundle_index',);
+            }
+
+            // ManuelPersonasBundle_crear
+            if (rtrim($pathinfo, '/') === '/manuel/crud/crear') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'ManuelPersonasBundle_crear');
+                }
+                return array (  '_controller' => 'Manuel\\PersonasBundle\\Controller\\DefaultController::crearAction',  '_route' => 'ManuelPersonasBundle_crear',);
+            }
+
+            // ManuelPersonasBundle_editar
+            if (0 === strpos($pathinfo, '/manuel/crud/editar') && preg_match('#^/manuel/crud/editar/(?P<id>\\d+)$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Manuel\\PersonasBundle\\Controller\\DefaultController::editarAction',)), array('_route' => 'ManuelPersonasBundle_editar'));
+            }
+
+        }
+
+        // ManuelInicioBundle_homepage
+        if ($pathinfo === '/manuel/inicio') {
+            return array (  '_controller' => 'Manuel\\InicioBundle\\Controller\\DefaultController::indexAction',  '_route' => 'ManuelInicioBundle_homepage',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }
