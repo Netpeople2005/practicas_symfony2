@@ -5,3 +5,9 @@ services:
 #    manuel_personas.example:
 #        class: %manuel_personas.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+    manuel_personas.admin.personas:
+        class: Manuel\PersonasBundle\Admin\PersonasAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: personas, label: Personas }
+        arguments: [null, Manuel\PersonasBundle\Entity\Personas, SonataAdminBundle:CRUD]

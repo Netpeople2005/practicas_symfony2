@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     charset:         UTF-8
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
@@ -58,3 +58,77 @@ swiftmailer:
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
+
+
+# sonata_cache:
+#     caches:
+#         esi:
+#             servers:
+#                 - varnishadm -T 127.0.0.1:2000 {{ COMMAND }} "{{ EXPRESSION }}"
+
+#         # mongo:
+#         #     database:   cache
+#         #     collection: cache
+#         #     servers:
+#         #         - {host: 127.0.0.1, port: 27017, user: username, password: pASS'}
+#         #         - {host: 127.0.0.2}
+
+#         # memcached:
+#         #     prefix: test     # prefix to ensure there is no clash between instances
+#         #     servers:
+#         #         - {host: 127.0.0.1, port: 11211, weight: 0}
+
+#         # memcache:
+#         #     prefix: test     # prefix to ensure there is no clash between instances
+#         #     servers:
+#         #         - {host: 127.0.0.1, port: 11211, weight: 1}
+
+#         # apc:
+#         #     token:  s3cur3   # token used to clear the related cache
+#         #     prefix: test     # prefix to ensure there is no clash between instances
+#         #     servers:
+#         #         - { domain: kooqit.local, ip: 127.0.0.1, port: 80}
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+        #sonata.admin_doctrine_orm.block.audit:
+        #    contexts:   [admin]
+
+        sonata.block.service.text:
+        sonata.block.service.action:
+        sonata.block.service.rss:
+
+        # Some specific block from the SonataMediaBundle
+        #sonata.media.block.media:
+        #sonata.media.block.gallery:
+        #sonata.media.block.feature_media:
+
+
+sonata_admin:
+    title:      Sonata Project - Manuel
+    #title_logo: /bundles/sonataadmin/logo_title.png
+    templates:
+        # default global templates
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+
+        # default actions templates, should extend a global templates
+        list:    SonataAdminBundle:CRUD:list.html.twig
+        show:    SonataAdminBundle:CRUD:show.html.twig
+        edit:    SonataAdminBundle:CRUD:edit.html.twig
+    dashboard:
+        blocks:
+            # display a dashboard block
+            - { position: left, type: sonata.admin.block.admin_list }
+        groups:
+            personas:
+                label: Personas
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Application\Sonata\UserBundle\Entity\User

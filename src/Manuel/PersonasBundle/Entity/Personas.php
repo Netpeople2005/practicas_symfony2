@@ -126,4 +126,8 @@ class Personas
         return $this->nombre . ' ' . $this->apellido;
     }
 
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 }
